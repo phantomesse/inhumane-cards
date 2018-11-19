@@ -1,0 +1,39 @@
+// Width and height set outside of this component. Should always be a 2:3 width:height ratio.
+
+@mixin _card-color($theme) {
+  background: map-get($theme, primary-bg-color);
+  border: 1px map-get($theme, primary-fg-color) solid;
+}
+
+& {
+  @include _card-color($black-theme);
+  opacity: .4;
+  position: relative;
+  transform: rotate(-40deg);
+}
+
+&,
+&::before,
+&::after {
+  border-radius: $grid / 4;
+}
+
+&::before,
+&::after  {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+&::before {
+  @include _card-color($black-theme);
+  transform: rotate(20deg) translate(10%);
+}
+
+&::after {
+  @include _card-color($white-theme);
+  transform: rotate(45deg) translate(35%);
+}

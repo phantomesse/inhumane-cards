@@ -1,0 +1,22 @@
+{
+  "name": "inhumane-cards",
+  "version": "0.0.1",
+  "description": "A multiplayer card matching game.",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.15.2",
+    "node-sass-middleware": "^0.11.0",
+    "socket.io": "^2.1.1"
+  },
+  "engines": {
+    "node": "9.10.1"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha"
+  }
+}

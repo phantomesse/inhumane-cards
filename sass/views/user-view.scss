@@ -1,0 +1,51 @@
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  h2 {
+    margin: $grid * 2;
+  }
+}
+
+.black-card {
+  display: flex;
+  flex-grow: 1;
+  align-content: stretch;
+
+  .card {
+    padding: $grid * 2 $grid * 4;
+    width: 100%;
+  }
+}
+
+.white-cards {
+  $card-width: $grid * 34;
+  $card-height: $grid * 45;
+  display: grid;
+  grid-template-columns: repeat(7, min-content);
+  max-width: 100%;
+  margin-top: auto;
+  overflow-x: auto;
+
+  .card {
+    height: $card-height;
+    width: $card-width;
+    padding: $grid * 3 $grid * 1.5;
+    box-sizing: border-box;
+
+    &:first-of-type {
+      padding-left: $grid * 3;
+    }
+
+    &:last-of-type {
+      padding-right: $grid * 3;
+    }
+  }
+}
