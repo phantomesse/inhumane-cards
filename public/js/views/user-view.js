@@ -31,8 +31,9 @@ class UserView extends AbstractView {
       'gameId': this._gameId
     }, function(gameSession) {
       // Set black card.
-      $('.black-card').append(new BlackCardComponent(gameSession.activeBlackCard)
-        .element);
+      const blackCardElement = new BlackCardComponent(gameSession.activeBlackCard)
+        .element;
+      blackCardElement.insertBefore('.white-cards');
     });
   }
 

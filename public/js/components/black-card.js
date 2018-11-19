@@ -1,8 +1,7 @@
 'use strict';
 
-class BlackCardComponent extends AbstractCardComponent {
+class BlackCardComponent {
   constructor(content) {
-    super(content);
-    this.element.addClass('black');
+    this.element = $('<div>').addClass('black-card').text(content);
   }
 }

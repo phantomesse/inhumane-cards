@@ -1,9 +1,10 @@
 'use strict';
 
-class WhiteCardComponent extends AbstractCardComponent {
+class WhiteCardComponent {
   constructor(content) {
-    super(content);
-    $('<div>').addClass('logo').appendTo(this.innerElement);
-    this.element.addClass('white');
+    // Create card element.
+    this._innerElement = $('<div>').addClass('inner').text(content);
+    $('<div>').addClass('logo').appendTo(this._innerElement);
+    this.element = $('<div>').addClass('white-card').append(this._innerElement);
   }
 }

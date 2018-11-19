@@ -1,9 +1,22 @@
+$_white: #fafafa;
+$_black: #0c0907;
+
 $black-theme: (
-  primary-bg-color: #0c0907,
-  primary-fg-color: #fff
+  primary-bg-color: $_black,
+  primary-fg-color: $_white,
+  border-color: rgba($_white, 0.5)
 );
 
 $white-theme: (
-  primary-bg-color: #fff,
-  primary-fg-color: #0c0907
+  primary-bg-color: $_white,
+  primary-fg-color: $_black,
+  border-color: rgba($_black, 0.5)
 );
+
+@mixin set-colors(
+  $theme,
+  $bg-color-key: primary-bg-color,
+  $fg-color-key: primary-fg-color) {
+  background: map-get($theme, $bg-color-key);
+  color: map-get($theme, $fg-color-key);
+}
