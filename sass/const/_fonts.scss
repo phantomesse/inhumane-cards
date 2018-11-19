@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Lato');
 
+
 @mixin header-font-family {
   font-family: 'IBM Plex Sans', sans-serif;
 }
@@ -10,3 +11,4 @@
 
 $card-font-size: $grid * 3;
 $header-font-size: $grid * 5 / 2;
+$body-font-size: $grid * 3;

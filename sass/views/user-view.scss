@@ -2,11 +2,13 @@ main {
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
+  position: relative;
 }
 
 header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: env(safe-area-inset-top)
            env(safe-area-inset-right)
@@ -15,6 +17,27 @@ header {
   width: 100%;
 
   h2 {
+    margin: $grid * 3;
+
+    &:first-of-type {
+      margin-right: auto;
+      margin-left: 0;
+      text-transform: uppercase;
+    }
+  }
+
+  button {
+    $size: $grid * 4;
+    background: transparent;
+    border: 0;
+    width: $size;
+    height: $size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: map-get($black-theme, primary-fg-color);
+    font-size: $header-font-size;
+    cursor: pointer;
     margin: $grid * 3;
   }
 }
@@ -25,4 +48,77 @@ header {
   overflow-x: auto;
   height: calc(50% + #{$grid * 3});
   max-height: $grid * 50;
+}
+
+.menu {
+  @include set-colors($black-theme);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: transform 0.2s linear 0s;
+
+  &.visible {
+    transform: translateX(0);
+  }
+
+  h3 {
+    padding-left: calc(#{$grid} * 4 + env(safe-area-inset-left));
+    margin: $grid * 4 0 $grid * 2;
+    font-size: $header-font-size;
+    text-transform: uppercase;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  .leaderboard {
+    font-size: $body-font-size;
+    display: grid;
+    align-items: center;
+    grid-gap: $grid * 2;
+    grid-template-columns: min-content auto min-content;
+
+    .icon {
+      $size: $grid * 3;
+      height: $size;
+      width: $size;
+      margin-left: calc(#{$grid} * 4 + env(safe-area-inset-left));
+    }
+
+    .score {
+      padding-right: calc(#{$grid} * 4 + env(safe-area-inset-right));
+    }
+  }
+
+  .session-info {
+    font-size: $body-font-size;
+    padding-left: calc(#{$grid} * 4 + env(safe-area-inset-left));
+    padding-right: calc(#{$grid} * 4 + env(safe-area-inset-right));
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .game-id {
+      display: block;
+      margin-bottom: $grid * 3;
+      grid-column-end: span 2;
+    }
+
+    .game-id::before {
+      content: 'Game ID: ';
+    }
+
+    button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 0;
+      background: transparent;
+      color: map-get($black-theme, primary-fg-color);
+      font-size: $body-font-size;
+    }
+  }
 }

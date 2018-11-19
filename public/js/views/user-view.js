@@ -9,6 +9,11 @@ class UserView extends AbstractView {
   }
 
   onLoadView() {
+    const self = this;
+    $('.menu-button').click(function() {
+      $('.menu').toggleClass('visible');
+    });
+
     const userId = this._userId;
 
     // Set game id and user id.
@@ -16,7 +21,6 @@ class UserView extends AbstractView {
     $('.game-id').text(this._gameId);
 
     // Add user. This method will only add user if the userId is new.
-    const self = this;
     $.post('/add-user', {
       'userId': userId,
       'gameId': this._gameId
