@@ -22,10 +22,49 @@
   height: 100%;
   justify-content: space-between;
   padding: $card-padding;
+  position: relative;
 
-  &:hover {
-    box-shadow: 0 0 $grid $grid / 2 hotpink;
-                //0 0 $grid $grid / 2 red;
+  $check-size: $grid * 10;
+  .fa-check {
+    $size: $check-size;
+    font-size: $size * 2 / 3;
+    background: hotpink;
+    position: absolute;
+    top: calc(50% - #{$size / 2});
+    left: calc(50% - #{$size / 2});
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    width: $size;
+    height: $size;
+  }
+
+  .order-counter {
+    $size: $grid * 5;
+    background: map-get($black-theme, primary-bg-color);
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: $size;
+    height: $size;
+    position: absolute;
+    font-weight: bold;
+    @include header-font-family;
+    color: #fff;
+    top: calc(50% + #{($check-size - $size) / 2 - $size / 4});
+    left: calc(50% + #{($check-size - $size) / 2 - $size / 4});
+  }
+
+  &.selected {
+    background: rgba(#fff, 0.7);
+
+    .fa-check,
+    .order-counter {
+      display: flex;
+    }
   }
 }
 
