@@ -22,6 +22,11 @@
   height: 100%;
   justify-content: space-between;
   padding: $card-padding;
+
+  &:hover {
+    box-shadow: 0 0 $grid $grid / 2 hotpink;
+                //0 0 $grid $grid / 2 red;
+  }
 }
 
 .logo {

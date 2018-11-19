@@ -21,7 +21,8 @@ header {
 
 .white-cards {
   display: grid;
-  grid-template-columns: repeat(7, minmax($grid * 40, 75%));
+  grid-template-columns: repeat(7, minmax($grid * 35, 65%));
   overflow-x: auto;
   height: calc(50% + #{$grid * 3});
+  max-height: $grid * 50;
 }
