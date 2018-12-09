@@ -11,6 +11,10 @@ label {
   font-family: $header-font-family;
   margin-top: $unit * 3;
   opacity: $translucent;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
 
 input[type=text] {
