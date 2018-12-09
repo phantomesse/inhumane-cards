@@ -1,0 +1,20 @@
+& {
+  display: inline-block;
+  font-family: $header-font-family;
+}
+
+div {
+  text-align: center;
+  user-select: none;
+
+  &:first-of-type {
+    font-size: $unit * 3;
+    line-height: $unit * 3;
+  }
+
+  &:last-of-type {
+    font-size: $unit * 2.5;
+    line-height: $unit * 2;
+    opacity: $translucent;
+  }
+}

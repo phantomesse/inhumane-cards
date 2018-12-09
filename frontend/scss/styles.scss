@@ -1,0 +1,56 @@
+@import 'colors';
+@import 'dimensions';
+@import 'fonts';
+
+html,
+body {
+  background: $black;
+  border: 0;
+  color: $white;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  flex-shrink: 0;
+  padding: $unit * 3;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+}
+
+footer {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  font-size: smaller;
+  justify-content: flex-end;
+  padding: $unit * 3;
+
+  a {
+    color: $white;
+    opacity: $translucent;
+    text-decoration: none;
+  }
+
+  .heart {
+    color: $accent-color;
+  }
+}
+
+inhumane-cards-logo {
+  @import '../components/inhumane-cards-logo/inhumane-cards-logo';
+}
+
+player-login {
+  @import '../components/player-login/player-login';
+}

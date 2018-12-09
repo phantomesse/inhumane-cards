@@ -1,0 +1,55 @@
+& {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: $unit * 3;
+  text-align: center;
+}
+
+label {
+  font-family: $header-font-family;
+  margin-top: $unit * 3;
+  opacity: $translucent;
+}
+
+input[type=text] {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px rgba($white, $strong-translucent) solid;
+  color: $white;
+  margin-bottom: $unit;
+  outline: none;
+  padding: $unit;
+  text-align: center;
+
+  &:focus {
+    color: $accent-color;
+    border-color: rgba($accent-color, $strong-translucent);
+  }
+}
+
+input[type=button] {
+  background: transparent;
+  border-radius: 4px;
+  border: 2px rgba($white, $strong-translucent) solid;
+  color: $white;
+  cursor: pointer;
+  margin: $unit $unit / 2;
+  opacity: $light-translucent;
+  outline: none;
+  padding: $unit;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:active,
+  &:focus {
+    border-color: rgba($accent-color, $strong-translucent);
+  }
+
+  &:active {
+    color: $accent-color;
+  }
+}
