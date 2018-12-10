@@ -18,7 +18,7 @@
   </header>
 
   <main>
-    <player-login></player-login>
+    <player-login ng-if="shouldShowPlayerLogin" on-join-game="updateView()"></player-login>
   </main>
 
   <footer>

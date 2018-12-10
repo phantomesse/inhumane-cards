@@ -2,7 +2,10 @@
 
 app.component('playerLogin', {
   templateUrl: 'components/player-login/player-login.html',
+  bindings: { onJoinGame: '&' },
   controller: function ($scope) {
+    const $ctrl = this;
+
     $scope.name = '';
     $scope.sanitizeName = function () {
       // Make the name all lowercase.
@@ -28,7 +31,8 @@ app.component('playerLogin', {
         $('input[type=text]').focus();
         return;
       }
-      console.log(`joining ${game}`);
+      history.pushState(null, null, '?game=' + game);
+      $ctrl.onJoinGame();
     };
 
     $scope.createNewGame = function () {
@@ -36,9 +40,9 @@ app.component('playerLogin', {
         $('input[type=text]').focus();
         return;
       }
-      console.log('create new game!');
-      $.post('/create-new-game', function (response) {
-        console.log(response);
+      $.post('/create-new-game', function (game) {
+        history.pushState(null, null, '?game=' + game);
+        $ctrl.onJoinGame();
       });
     };
   }
