@@ -10,7 +10,7 @@ class GameIds {
     const self = this;
     GameIds._getGameIds().then(function (response) {
       self._ids = response;
-    })
+    });
   }
 
   get newGameId() {

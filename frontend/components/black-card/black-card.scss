@@ -1,0 +1,14 @@
+& {
+  padding: $unit * 3;
+  align-self: flex-start;
+  display: inline-flex;
+  margin: 0 auto;
+}
+
+span {
+  font-size: $unit * 5;
+  border-radius: $unit;
+  padding: $unit * 3;
+  border: 2px rgba($white, $translucent) solid;
+  max-width: 800px;
+}

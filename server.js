@@ -42,6 +42,25 @@ server.get('/existing-game-ids', function (request, response) {
   response.send(JSON.stringify(app.existingGameIds));
 });
 
+// Checks if a game id exists.
+server.get('/does-game-exist', function (request, response) {
+  response.setHeader('Content-Type', 'application/json');
+  response.send(JSON.stringify(app.doesGameExist(request.query.game)));
+});
+
+// Get the current black card for a given game id.
+server.get('/black-card', function (request, response) {
+  response.setHeader('Content-Type', 'application/json');
+
+  const gameId = request.query.game;
+  if (app.doesGameExist(gameId)) {
+    const blackCard = app.getGame(gameId).blackCard;
+    response.send(JSON.stringify(blackCard));
+  } else {
+    response.send(JSON.stringify(null));
+  }
+});
+
 // Handle socket.io connections
 io.on('connection', function (socket) {
   console.log(`connected`);

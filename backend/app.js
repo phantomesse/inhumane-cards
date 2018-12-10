@@ -16,8 +16,16 @@ class App {
     return gameId;
   }
 
+  doesGameExist(gameId) {
+    return gameId in this._gameIdToGameMap;
+  }
+
   get existingGameIds() {
     return Object.keys(this._gameIdToGameMap);
+  }
+
+  getGame(gameId) {
+    return this._gameIdToGameMap[gameId];
   }
 }
 

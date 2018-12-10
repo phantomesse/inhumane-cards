@@ -19,9 +19,10 @@
 
   <main>
     <player-login ng-if="shouldShowPlayerLogin" on-join-game="updateView()"></player-login>
+    <black-card ng-if="!shouldShowPlayerLogin"></black-card>
   </main>
 
-  <footer>
+  <footer ng-if="shouldShowPlayerLogin">
     <a href="https://github.com/phantomesse/inhumane-cards" target="_blank">
       made with <span class="heart">&hearts;</span> by lauren zou
     </a>
@@ -33,6 +34,7 @@
   <script src="js/scripts.js"></script>
   <script src="components/inhumane-cards-logo/inhumane-cards-logo.js"></script>
   <script src="components/player-login/player-login.js"></script>
+  <script src="components/black-card/black-card.js"></script>
 </body>
 
 </html>
