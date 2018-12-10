@@ -20,7 +20,6 @@ class App {
 
   addPlayerToGame(player, gameId) {
     this.getGame(gameId).addPlayer(player);
-    player.gameId = gameId;
   }
 
   removePlayerFromGame(player, gameId) {
@@ -29,6 +28,7 @@ class App {
 
   getPlayer(playerName, gameId) {
     for (const player of this._players) {
+      console.log(`${player.name} with game ${player.gameId}`);
       if (player.name === playerName && player.gameId === gameId) {
         return player;
       }

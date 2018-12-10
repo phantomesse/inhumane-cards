@@ -31,11 +31,7 @@ app.component('playerLogin', {
         $('input[type=text]').focus();
         return;
       }
-      history.pushState(null, null, '?game=' + game);
-      $ctrl.onJoinGame();
-      console.log($scope.name);
-      socket.emit('setPlayerName', $scope.name);
-      socket.emit('addPlayerToGame', game);
+      joinGame(game);
     };
 
     $scope.createNewGame = function () {
@@ -44,12 +40,15 @@ app.component('playerLogin', {
         return;
       }
       $.post('/create-new-game', function (game) {
-        history.pushState(null, null, '?game=' + game);
-        $ctrl.onJoinGame();
-        console.log($scope.name);
-        socket.emit('setPlayerName', $scope.name);
-        socket.emit('addPlayerToGame', game);
+        joinGame(game);
       });
     };
+
+    function joinGame(game) {
+      history.pushState(null, null, `?game=${game}&player=${$scope.name}`);
+      $ctrl.onJoinGame();
+      socket.emit('setPlayerName', $scope.name);
+      socket.emit('addPlayerToGame', game);
+    }
   }
 });

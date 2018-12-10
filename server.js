@@ -63,7 +63,6 @@ server.get('/black-card', function (request, response) {
 
 server.get('/white-cards', function (request, response) {
   response.setHeader('Content-Type', 'application/json');
-
   const playerName = request.query.player;
   const gameId = request.query.game;
   const player = app.getPlayer(playerName, gameId);

@@ -18,7 +18,9 @@ class Player {
     });
 
     socket.on('addPlayerToGame', function (gameId) {
+      console.log(`adding ${self.name} to ${gameId}`);
       app.addPlayerToGame(self, gameId);
+      self.gameId = gameId;
     });
 
     socket.on('disconnect', function () {

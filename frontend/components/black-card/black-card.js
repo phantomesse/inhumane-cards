@@ -7,7 +7,6 @@ app.component('blackCard', {
 
     $scope.content = '';
     $.get('/black-card', { game: game }, function (response) {
-      console.log(response);
       $scope.content = response;
       $scope.$apply();
     });
