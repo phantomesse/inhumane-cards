@@ -15,6 +15,31 @@ app.component('playerLogin', {
       while ($scope.name[$scope.name.length - 1] === '-') {
         $scope.name = $scope.name.substring(0, $scope.name.length - 2);
       }
-    }
+    };
+
+    $scope.existingGames = [];
+    $.get('/existing-game-ids', function (response) {
+      $scope.existingGames = response;
+      $scope.$apply();
+    });
+
+    $scope.joinExistingGame = function (game) {
+      if ($scope.name === '') {
+        $('input[type=text]').focus();
+        return;
+      }
+      console.log(`joining ${game}`);
+    };
+
+    $scope.createNewGame = function () {
+      if ($scope.name === '') {
+        $('input[type=text]').focus();
+        return;
+      }
+      console.log('create new game!');
+      $.post('/create-new-game', function (response) {
+        console.log(response);
+      });
+    };
   }
 });

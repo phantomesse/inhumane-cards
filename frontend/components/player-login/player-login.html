@@ -1,11 +1,12 @@
 <labeL>enter your name</labeL>
 <input type="text" ng-model="name" ng-blur="sanitizeName()" autofocus />
 
-<label>join an existing game</label>
-<section>
-  <input type="button" value="nasty-narwhal" />
-  <input type="button" value="cheating-cheetah" />
+
+<label ng-if="existingGames.length > 0">join an existing game</label>
+<section ng-if="existingGames.length > 0">
+  <input type="button" ng-repeat="game in existingGames" value="{{game}}"
+         ng-click="joinExistingGame(game)" />
 </section>
 
-<label>or</label>
-<input type="button" value="create a new game" />
+<label ng-if="existingGames.length > 0">or</label>
+<input type="button" value="create a new game" ng-click="createNewGame()" />
