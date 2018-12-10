@@ -18,6 +18,21 @@ class Game {
 
   addPlayer(player) {
     this._players.push(player);
+
+    // Deal the new player 7 white cards.
+    const whiteCards = new Set();
+    while (whiteCards.size < 7) {
+      const whiteCard = Cards.whiteCard;
+      if (this._seenWhiteCards.includes(whiteCard)) continue;
+      whiteCards.add(whiteCard);
+      this._seenWhiteCards.push(whiteCard);
+    }
+    player.whiteCards = Array.from(whiteCards);
+  }
+
+  removePlayer(player) {
+    const index = this._players.indexOf(player);
+    this._players.splice(index, 1);
   }
 }
 

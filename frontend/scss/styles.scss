@@ -26,6 +26,8 @@ header {
 main {
   display: flex;
   flex-grow: 1;
+  justify-content: center;
+  flex-direction: column;
   flex-shrink: 0;
 }
 
@@ -58,4 +60,12 @@ player-login {
 
 black-card {
   @import '../components/black-card/black-card';
+}
+
+white-card {
+  @import '../components/white-card/white-card';
+}
+
+white-cards {
+  @import '../components/white-cards/white-cards';
 }

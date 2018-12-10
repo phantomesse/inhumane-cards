@@ -33,6 +33,9 @@ app.component('playerLogin', {
       }
       history.pushState(null, null, '?game=' + game);
       $ctrl.onJoinGame();
+      console.log($scope.name);
+      socket.emit('setPlayerName', $scope.name);
+      socket.emit('addPlayerToGame', game);
     };
 
     $scope.createNewGame = function () {
@@ -43,6 +46,9 @@ app.component('playerLogin', {
       $.post('/create-new-game', function (game) {
         history.pushState(null, null, '?game=' + game);
         $ctrl.onJoinGame();
+        console.log($scope.name);
+        socket.emit('setPlayerName', $scope.name);
+        socket.emit('addPlayerToGame', game);
       });
     };
   }

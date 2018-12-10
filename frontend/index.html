@@ -20,6 +20,7 @@
   <main>
     <player-login ng-if="shouldShowPlayerLogin" on-join-game="updateView()"></player-login>
     <black-card ng-if="!shouldShowPlayerLogin"></black-card>
+    <white-cards ng-if="!shouldShowPlayerLogin"></white-cards>
   </main>
 
   <footer ng-if="shouldShowPlayerLogin">
@@ -35,6 +36,8 @@
   <script src="components/inhumane-cards-logo/inhumane-cards-logo.js"></script>
   <script src="components/player-login/player-login.js"></script>
   <script src="components/black-card/black-card.js"></script>
+  <script src="components/white-card/white-card.js"></script>
+  <script src="components/white-cards/white-cards.js"></script>
 </body>
 
 </html>
