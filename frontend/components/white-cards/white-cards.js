@@ -9,6 +9,11 @@ app.component('whiteCards', {
     $.get('/white-cards', { player: parameters['player'], game: parameters['game'] }, function (response) {
       $scope.contents = response;
       $scope.$apply();
-    })
+    });
+
+    const selectedCards = [];
+    $scope.deselectCards = function (selectedCard) {
+      console.log('selected card is ' + selectedCard.selected);
+    };
   }
 });

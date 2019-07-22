@@ -1,0 +1,11 @@
+& {
+  $size: $unit * 10;
+  border-radius: 50%;
+  position: absolute;
+  height: $size;
+  width: $size;
+  background: $accent-color;
+  color: $white;
+  left: calc(50% - #{$size / 2});
+  top: calc(50% - #{$size / 2});
+}

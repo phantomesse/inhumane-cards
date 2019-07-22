@@ -1,6 +1,8 @@
 & {
   display: flex;
   padding: $unit * 3 $unit * 1.5;
+  width: $unit * 50;
+  max-width: 80vw;
 
   &:first-of-type {
     padding-left: $unit * 3;
@@ -21,6 +23,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
+
+  white-card-badge {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:hover white-card-badge {
+    opacity: $strong-translucent;
+  }
+
+  &.selected white-card-badge {
+    opacity: 1;
+  }
 }
 
 p {
